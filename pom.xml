@@ -80,7 +80,32 @@
 			</formats>
 		</configuration>
 	</plugin>
+        <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.6.0.1398</version>
+        </plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.1</version>
+				<extensions>true</extensions>
+				<configuration>
+				<!-- The Base URL of Nexus instance where we want to stage -->
+					<nexusUrl>http://ip172-18-0-14-bkgr2r2pr3f000f0g230-8081.direct.labs.play-with-k8s.com/repository/maven-snapshots/</nexusUrl>
+					<!-- The server "id" element from settings to use authentication from -->
+					<serverId>nexus-snapshots</serverId>
+				</configuration>
+			</plugin>
       </plugins>
     </pluginManagement>
   </build>
+  <distributionManagement>
+ <!-- Publish the versioned releases here -->
+ <repository>
+  <id>nexus-snapshots</id>
+  <name>anil nexus</name>
+  <url>http://ip172-18-0-14-bkgr2r2pr3f000f0g230-8081.direct.labs.play-with-k8s.com/repository/maven-snapshots/</url>
+ </repository>
+</distributionManagement>
 </project>
