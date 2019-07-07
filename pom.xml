@@ -16,6 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <sonar.host.url>http://ip172-18-0-5-bkgr2r2pr3f000f0g230-9000.direct.labs.play-with-k8s.com</sonar.host.url>
+	<sonar.login>19e916e7588d28c261a1970ea7e98255ecd6a59b</sonar.login>
   </properties>
 
   <dependencies>
@@ -83,7 +85,6 @@
         <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.6.0.1398</version>
         </plugin>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
