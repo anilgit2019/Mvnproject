@@ -1,6 +1,0 @@
-projectKey=aniljava
-serverUrl=http://ip172-18-0-8-bkguo6dh4pv000e4al3g-9000.direct.labs.play-with-k8s.com
-serverVersion=7.9.0.26994
-dashboardUrl=http://ip172-18-0-8-bkguo6dh4pv000e4al3g-9000.direct.labs.play-with-k8s.com/dashboard?id=aniljava
-ceTaskId=AWvMqow8AGITXt6fI34x
-ceTaskUrl=http://ip172-18-0-8-bkguo6dh4pv000e4al3g-9000.direct.labs.play-with-k8s.com/api/ce/task?id=AWvMqow8AGITXt6fI34x
