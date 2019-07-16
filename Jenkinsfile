@@ -14,16 +14,27 @@ pipeline{
         
     }
     
-    parameters {
-        string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
-        string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
-    }
+
     
     stages {
+	    
+        stage ('checkQA') {
+		input { message 'this is QA job'}	
+		
+    		parameters {
+        		string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
+        		string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
+   		 }
+			
+            	
+            	steps { 
+               	 sh 'echo input'
+            	}
+        }
 
 	    
         stage ('build') {
-		input { message 'this is QA job'}		
+			
 			
             	agent { docker { image 'maven:latest' } }
             	steps { 
