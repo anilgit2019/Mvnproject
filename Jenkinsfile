@@ -41,9 +41,9 @@ pipeline{
                 sh 'printenv'
                 sh 'mvn test'
                 sh 'mvn sonar:sonar \
-                    -Dsonar.projectKey=payments \
-                    -Dsonar.host.url=http://ip172-18-0-65-bkm6sdpt0o8g00evelr0-9000.direct.labs.play-with-docker.com \
-                    -Dsonar.login=$SONAR_TOKEN'
+ 			 -Dsonar.projectKey=payments \
+ 			 -Dsonar.host.url=http://ip172-18-0-29-bkmm6qdtcgkg009kvl60-9000.direct.labs.play-with-docker.com \
+ 			 -Dsonar.login=$SONAR_TOKEN'
             }
         }
         
