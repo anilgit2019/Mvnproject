@@ -48,7 +48,7 @@ pipeline{
             steps {
 		    
 		    parameters {
-			    string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
+			    string(name: 'SONAR_TOKEN' , defaultValue: ' ', description: 'sonartkn', trim: true)
 		    }  
 			    
 
