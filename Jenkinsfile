@@ -16,6 +16,7 @@ pipeline{
     
     parameters {
         string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
+	string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
     }
     
     stages {
@@ -45,15 +46,7 @@ pipeline{
                 expression { SONAR_RUN  == 'yes' }
             }
 			
-            steps {
-		    
-		    parameters {
-			    string(name: 'SONAR_TOKEN' , 
-				   defaultValue: ' ', 
-				   description: 'sonartkn',
-				   trim: true)
-		    }  
-			    
+            steps {    
 
                 sh 'printenv'
                 sh 'mvn test'
