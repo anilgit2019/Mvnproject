@@ -50,7 +50,8 @@ pipeline{
 		    parameters {
 			    string(name: 'SONAR_TOKEN' , 
 				   defaultValue: ' ', 
-				   description: 'sonartkn')
+				   description: 'sonartkn',
+				   trim: true)
 		    }  
 			    
 
