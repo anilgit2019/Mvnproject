@@ -19,16 +19,15 @@ pipeline{
     stages {
 	    
         stage ('checkQA') {
-		input { message 'this is QA job'}	
-		
-    		parameters {
-        		string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
-        		string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
-   		 }
-			
+		input { message 'this is QA job'}		
             	
             	steps { 
-               	 sh 'echo input'
+    			parameters {
+        			string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
+        			string(name: 'SONAR_TOKEN' , defaultValue: '999999999999', description: 'sonartkn')
+   		 	}
+			
+               	 	sh 'echo input'
             	}
         }
 
