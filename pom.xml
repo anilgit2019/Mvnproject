@@ -97,7 +97,7 @@
  <repository>
   <id>nexus-releases</id>
   <name>anil nexus</name>
-  <url>http://ip172-18-0-35-bko50uipr3f000c40180-8081.direct.labs.play-with-k8s.com/repository/maven-snapshots/</url>
+  <url>http://ip172-18-0-12-bko7f22pr3f000c403q0-8081.direct.labs.play-with-k8s.com/repository/maven-snapshots//</url>
  </repository>
 </distributionManagement>
 </project>
