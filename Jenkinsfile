@@ -1,68 +1,44 @@
-pipeline{
-     agent { label 'master' }
-    
-    tools {
-        maven 'maven'
-    }
-    
-    environment {
-        GIT_CRED = credentials('github')
-    }
-    
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '2')) 
-        
-    }
-    
-    parameters {
-        string(name: 'SONAR_RUN' , defaultValue: 'no', description: 'run sonar: yes')
-	string(name: 'SONAR_TOKEN' , defaultValue: ' ', description: 'sonartkn')
-    }
-    
+pipeline {
+    agent any
     stages {
-	    
-        stage ('checkQA') {
-		input { message 'this is QA job'}		
-            	
-            	steps { 
-			
-               	 	sh 'echo input'
-            	}
-        }
-
-	    
-        stage ('build') {
-			
-			
-            	agent { docker { image 'maven:latest' } }
-            	steps { 
-               	 sh 'mvn clean install -DskipTests=false'
-            	}
-        }
-        
-        stage ('sonar') {
-		         
-            when {   
-                expression { SONAR_RUN  == 'yes' }
-            }
-			
-            steps {    
-
-                sh 'printenv'
-                sh 'mvn test'
-                sh 'mvn sonar:sonar \
- 			 -Dsonar.projectKey=payments \
- 			 -Dsonar.host.url=http://ip172-18-0-29-bkmm6qdtcgkg009kvl60-9000.direct.labs.play-with-docker.com \
- 			 -Dsonar.login=$SONAR_TOKEN'
+        stage ('Clone') {
+            steps {
+                git branch: 'master', url: "https://github.com/amuddalan/Mvnproject.git"
             }
         }
-        
-    }
-    
-    post {
-        always { 
-            
-            junit '**/target/surefire-reports/*.xml'
+
+        stage ('Artifactory configuration') {
+            steps {
+                rtServer (
+                    id: "ARTIFACTORY_SERVER",
+                    url: "http://13.232.166.108:8081",
+                    username: "admin",
+                    password: "anil@123",
+                    bypassProxy: true
+                )
+
+                rtMavenDeployer (
+                    id: "MAVEN_DEPLOYER",
+                    serverId: "ARTIFACTORY_SERVER",
+                    releaseRepo: "http://13.232.166.108:8081/repository/maven-snapshots/",
+                    snapshotRepo: "http://13.232.166.108:8081/repository/maven-snapshots/"
+                )
+
+            }
         }
+
+        stage ('Exec Maven') {
+            steps {
+                rtMavenRun (
+                    tool: 'maven', // Tool name from Jenkins configuration
+                    pom: 'pom.xml',
+                    goals: 'clean deploy',
+                    deployerId: "MAVEN_DEPLOYER",
+
+                )
+            }
+        }
+
+ 
     }
-} 
+}
