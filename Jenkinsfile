@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ('Clone') {
-            steps {
-                echo anil
-            }
-        }
+   
 
         stage ('Artifactory configuration') {
             steps {
