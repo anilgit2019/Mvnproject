@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.capgemini</groupId>
-  <artifactId>payments2</artifactId>
+  <artifactId>payments3</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>payments</name>
