@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Clone') {
             steps {
-                git branch: 'master', url: "https://github.com/amuddalan/Mvnproject.git"
+                echo anil
             }
         }
 
