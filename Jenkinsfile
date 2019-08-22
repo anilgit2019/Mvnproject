@@ -34,7 +34,16 @@ pipeline {
                 )
             }
         }
-
+        stage ('Download') {
+            steps {
+                rtDownload (
+                    buildName: 'MK',
+                    buildNumber: '48',
+                    serverId: "ARTIFACTORY_SERVER",
+                    specPath: '$WORKSPACE'
+                )
+            }
+        }
  
     }
 }
