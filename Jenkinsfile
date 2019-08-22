@@ -7,7 +7,7 @@ pipeline {
             steps {
                 rtServer (
                     id: "ARTIFACTORY_SERVER",
-                    url: "http://13.232.166.108:8081",
+                    url: "http://13.232.166.108:8081/",
                     username: "admin",
                     password: "anil@123",
                     bypassProxy: true
@@ -16,8 +16,8 @@ pipeline {
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
                     serverId: "ARTIFACTORY_SERVER",
-                    releaseRepo: "http://13.232.166.108:8081/repository/maven-snapshots/",
-                    snapshotRepo: "http://13.232.166.108:8081/repository/maven-snapshots/"
+                    releaseRepo: "repository/maven-snapshots/",
+                    snapshotRepo: "repository/maven-snapshots/"
                 )
 
             }
