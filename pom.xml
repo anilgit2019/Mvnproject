@@ -80,10 +80,6 @@
 			</formats>
 		</configuration>
 	</plugin>
-        <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-        </plugin>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -94,10 +90,5 @@
   </build>
   <distributionManagement>
  <!-- Publish the versioned releases here -->
- <repository>
-  <id>nexus-releases</id>
-  <name>anil nexus</name>
-  <url>http://ip172-18-0-12-bko7f22pr3f000c403q0-8081.direct.labs.play-with-k8s.com/repository/maven-snapshots//</url>
- </repository>
 </distributionManagement>
 </project>
